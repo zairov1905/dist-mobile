@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Emlak.Az - Ev alqı satqısı , kirayə evlər, dasınmaz əmlak, ev elanları, bina, evlər, mənzillər, villalar, bağ evləri, həyət evləri, ipotekada olan evlər, kreditlə satılan evlər">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Emlak.Az - Ev alqı satqısı , kirayə evlər, dasınmaz əmlak, ev elanları, bina, evlər, mənzillər, villalar, bağ
+        evləri, həyət evləri, ipotekada olan evlər, kreditlə satılan evlər</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#0a9543">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="assets/styles/vendor.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <button class="btn btn-fluid btn-md btn-green font-weight-bold m-b-24" data-izimodal-open="#landmark-modal">Nişangahların seçilməsi</button>
+        <button class="btn btn-fluid btn-md btn-green font-weight-bold m-b-24" data-izimodal-open="#promotion-modal">Elanı irəli çəkmək</button>
+        <button class="btn btn-fluid btn-md btn-green font-weight-bold m-b-24" data-izimodal-open="#premium-modal">Premium et</button>
+        <button class="btn btn-fluid btn-md btn-green font-weight-bold m-b-24" data-izimodal-open="#promotion-code-modal">Elan nömrəsinin daxil
+        etmə</button>
+        <button class="btn btn-fluid btn-md btn-green font-weight-bold m-b-24" data-izimodal-open="#success-modal">Success</button>
+        <button class="btn btn-fluid btn-md btn-orange font-weight-bold m-b-24" data-izimodal-open="#warning-modal">Warning</button>
+        <button class="btn btn-fluid btn-md btn-blue font-weight-bold m-b-24" data-izimodal-open="#info-modal">Info</button>
+        <button class="btn btn-fluid btn-md btn-red font-weight-bold m-b-24" data-izimodal-open="#error-modal">Error</button>
+    </div>
+
+    <!-- Promotion  Modal  -->
+    <div id="promotion-modal" class="modal">
+        <div class="modal-holder modal-full-screen">
+            <div class="modal-header">
+                <h4 class="modal-header__title">Elanı irəli çəkmək</h4>
+                <div class="modal-close icon-close" data-izimodal-close="close"></div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-note fs-14">Elanınınız son elanlar bölməsində və axtarış nəticələrində birinci yerə
+                    qalxacaq.</div>
+                <div class="option-list">
+                    <h4 class="option-list__title">Xidmətin müddətini seçin</h4>
+                    <div class="option-list__item">
+                        <label for="1" class="radio">
+                            <input type="radio" id="1" name="term-service" checked="checked">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">1 dəfə / 3.00 AZN</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="2" class="radio">
+                            <input type="radio" id="2" name="term-service">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">3 dəfə / 6.00 AZN</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="3" class="radio">
+                            <input type="radio" id="3" name="term-service">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">5 dəfə / 9.00 AZN</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="option-list">
+                    <h4 class="option-list__title">Ödəniş üsulunu seçin</h4>
+                    <div class="option-list__item">
+                        <label for="bank-card" class="radio">
+                            <input type="radio" id="bank-card" name="payment" checked="checked">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">Bank kartı</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="portmanat" class="radio">
+                            <input type="radio" id="portmanat" name="payment">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">Portmanat (terminallarda ödəniş)</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="wallet" class="radio">
+                            <input type="radio" id="wallet" name="payment">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">Şəxsi pul kisəsi (30.00 AZN)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-fluid btn-md btn-orange font-weight-bold">ÖDƏ</button>
+                <div class="modal-note m-t-16">
+                    «Ödə» düyməsini sıxmaqla siz Emlak.az-ın
+                    <a href="#" target="_blank" class="link color-blue-300">İstifadəçi razılaşmasını</a> və <a href="#" target="_blank" class="link color-blue-300">Qaydalarını</a> qəbul
+                    etdiyinizi təsdiqləmiş olursunuz.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium  Modal  -->
+    <div id="premium-modal" class="modal">
+        <div class="modal-holder modal-full-screen">
+            <div class="modal-header">
+                <div class="flex flex-start">
+                    <span class="icon-crown-solid fs-20 color-green-400 m-r-8"></span>
+                    <h4 class="modal-header__title">Premium Et</h4>
+                </div>
+                <div class="modal-close icon-close" data-izimodal-close="close"></div>
+            </div>
+            <div class="modal-body">
+                <div class="option-list border-none m-t-0">
+                    <h4 class="option-list__title">Xidmətin müddətini seçin</h4>
+                    <div class="option-list__item">
+                        <label for="services-pricing-1" class="radio">
+                            <input type="radio" id="services-pricing-1" name="services-pricing" checked="checked">
+                            <span class="radio-control theme-blue"></span>
+                            <span class="radio-label color-black-230">1 Gün / 5.00 AZN</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="services-pricing-2" class="radio">
+                            <input type="radio" id="services-pricing-2" name="services-pricing">
+                            <span class="radio-control theme-blue"></span>
+                            <span class="radio-label color-black-230">5 Gün / 20.00 AZN</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="services-pricing-3" class="radio">
+                            <input type="radio" id="services-pricing-3" name="services-pricing">
+                            <span class="radio-control theme-blue"></span>
+                            <span class="radio-label color-black-230">15 Gün / 40.00 AZN</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="services-pricing-4" class="radio">
+                            <input type="radio" id="services-pricing-4" name="services-pricing">
+                            <span class="radio-control theme-blue"></span>
+                            <span class="radio-label color-black-230">30 Gün / 60.00 AZN</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="option-list">
+                    <h4 class="option-list__title">Ödəniş üsulunu seçin</h4>
+                    <div class="option-list__item">
+                        <label for="premium-bank-card" class="radio">
+                            <input type="radio" id="premium-bank-card" name="premium-payment" checked="checked">
+                            <span class="radio-control theme-blue"></span>
+                            <span class="radio-label color-black-230">Bank kartı</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="premium-portmanat" class="radio">
+                            <input type="radio" id="premium-portmanat" name="premium-payment">
+                            <span class="radio-control theme-blue"></span>
+                            <span class="radio-label color-black-230">Portmanat (terminallarda ödəniş)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-fluid btn-md btn-blue font-weight-bold">ÖDƏ</button>
+                <div class="modal-note m-t-16">
+                    «Ödə» düyməsini sıxmaqla siz Emlak.az-ın
+                    <a href="#" target="_blank" class="link color-blue-300">İstifadəçi razılaşmasını</a> və <a href="#" target="_blank" class="link color-blue-300">Qaydalarını</a> qəbul
+                    etdiyinizi təsdiqləmiş olursunuz.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promotion Code  Modal  -->
+    <div id="promotion-code-modal" class="modal">
+        <div class="modal-holder modal-full-screen">
+            <div class="modal-header">
+                <h4 class="modal-header__title">Elanın nömrəsini daxil edin</h4>
+                <div class="modal-close icon-close" data-izimodal-close="close"></div>
+            </div>
+            <div class="modal-body">
+                <div class="input-wrapper m-t-8 m-b-8">
+                    <input type="text" class="input-control input-control-md" placeholder="Elanın nömrəsi">
+                    <label for="" class="floating-label">Elanın nömrəsi</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-fluid btn-md btn-green font-weight-bold">TƏSDİQ ET</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Landmark  Modal  -->
+    <div id="landmark-modal" class="modal modal-lg">
+        <div class="search-container tab-container">
+            <div class="search-container-header">
+                <div class="flex flex-middle flex-between p-t-16 p-b-16">
+                    <div class="search-container-header__location-city">Şəhər: <span class="font-weight-bold color-blue-300">Bakı</span></div>
+
+                <div class="search-container-header__action">
+                    <div class="modal-close icon-close" data-izimodal-close="close"></div>
+                </div>
+                </div>
+                <div class="search-container-body__form">
+                    <div class="search-container-body__form__control">
+                        <div class="tab-holder">
+                            <div class="tab-content active" data-tab="search-container-tab-content-region">
+                                <div class="search-dropdown">
+                                    <div class="input-wrapper has-icon">
+                                        <input type="text" class="input-control input-control-ml placeholder-show" placeholder="Rayon və qəsəbə axtarışı">
+                                        <span class="input-icon icon-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" data-tab="search-container-tab-content-metro">
+                                <div class="search-dropdown">
+                                    <div class="input-wrapper has-icon">
+                                        <input type="text" class="input-control input-control-ml placeholder-show" placeholder="Metro axtarışı">
+                                        <span class="input-icon icon-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" data-tab="search-container-tab-content-building">
+                                <div class="search-dropdown">
+                                    <div class="input-wrapper has-icon">
+                                        <input type="text" class="input-control input-control-ml placeholder-show" placeholder="MTK axtarışı">
+                                        <span class="input-icon icon-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content" data-tab="search-container-tab-content-landmark">
+                                <div class="search-dropdown">
+                                    <div class="input-wrapper has-icon">
+                                        <input type="text" class="input-control input-control-ml placeholder-show" placeholder="Nişangah axtarışı">
+                                        <span class="input-icon icon-search"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-container-body__form__result">
+                        <span class="search-locations__list__item selected">Ağ şəhər</span>
+                        <span class="search-locations__list__item selected">Axundov bağı</span>
+                    </div>
+                </div>
+                <div class="search-container-header__navigation">
+                    <a href="javascript:void(0)" class="search-container-header__navigation__link tab active" id="search-container-tab-content-region">
+                        <span class="search-container-header__navigation__link__icon icon-map-solid"></span>
+                        <span class="search-container-header__navigation__link__label">RAYON VƏ QƏSƏBƏLƏR</span>
+                    </a>
+                    <a href="javascript:void(0)" class="search-container-header__navigation__link tab" id="search-container-tab-content-metro">
+                        <span class="search-container-header__navigation__link__icon icon-metro"></span>
+                        <span class="search-container-header__navigation__link__label">METROLAR</span>
+                    </a>
+                    <a href="javascript:void(0)" class="search-container-header__navigation__link tab" id="search-container-tab-content-building">
+                        <span class="search-container-header__navigation__link__icon icon-building-solid"></span>
+                        <span class="search-container-header__navigation__link__label">MTK-LAR</span>
+                    </a>
+                    <a href="javascript:void(0)" class="search-container-header__navigation__link tab" id="search-container-tab-content-landmark">
+                        <span class="search-container-header__navigation__link__icon icon-marker"></span>
+                        <span class="search-container-header__navigation__link__label">NİŞANGAHLAR</span>
+                    </a>
+                </div>
+            </div>
+            <div class="search-container-body">
+                <div class="search-container-body__list">
+                    <div class="tab-holder">
+                        <div class="tab-content active" data-tab="search-container-tab-content-region">
+                            <div class="search-locations__list">
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Abşeron r.</span>
+                                    <span class="search-locations__list__item selected">Ceyranbatan</span>
+                                    <span class="search-locations__list__item selected">Çiçək</span>
+                                    <span class="search-locations__list__item">Digah</span>
+                                    <span class="search-locations__list__item">Fatmayı</span>
+                                    <span class="search-locations__list__item">Görədil</span>
+                                    <span class="search-locations__list__item">Hökməli</span>
+                                    <span class="search-locations__list__item">Köhnə Corat</span>
+                                    <span class="search-locations__list__item">Qobu</span>
+                                    <span class="search-locations__list__item">Masazır</span>
+                                    <span class="search-locations__list__item">Mehdiabad</span>
+                                    <span class="search-locations__list__item">Müşviqabad</span>
+                                    <span class="search-locations__list__item">Novxanı</span>
+                                    <span class="search-locations__list__item">Pirəkəşkül</span>
+                                    <span class="search-locations__list__item">Saray</span>
+                                    <span class="search-locations__list__item">Yeni Corat</span>
+                                    <span class="search-locations__list__item">Zağulba</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Binəqədi r.</span>
+                                    <span class="search-locations__list__item">2-ci Alatava</span>
+                                    <span class="search-locations__list__item">28 May</span>
+                                    <span class="search-locations__list__item">6-cı mikrorayon</span>
+                                    <span class="search-locations__list__item">7-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">8-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">9-cu mikrorayon</span>
+                                    <span class="search-locations__list__item">Biləcəri</span>
+                                    <span class="search-locations__list__item">Binəqədi</span>
+                                    <span class="search-locations__list__item">Xocəsən</span>
+                                    <span class="search-locations__list__item">Xutor</span>
+                                    <span class="search-locations__list__item">M.Ə.Rəsulzadə</span>
+                                    <span class="search-locations__list__item">Sulutəpə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Xətai r.</span>
+                                    <span class="search-locations__list__item">Əhmədli</span>
+                                    <span class="search-locations__list__item">Həzi Aslanov</span>
+                                    <span class="search-locations__list__item">Köhnə Günəşli</span>
+                                    <span class="search-locations__list__item">NZS</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Xəzər r.</span>
+                                    <span class="search-locations__list__item">Binə</span>
+                                    <span class="search-locations__list__item">Buzovna</span>
+                                    <span class="search-locations__list__item">Dübəndi</span>
+                                    <span class="search-locations__list__item">Gürgən</span>
+                                    <span class="search-locations__list__item">Qala</span>
+                                    <span class="search-locations__list__item">Mərdəkan</span>
+                                    <span class="search-locations__list__item">Şağan</span>
+                                    <span class="search-locations__list__item">Şimal DRES</span>
+                                    <span class="search-locations__list__item">Şüvəlan</span>
+                                    <span class="search-locations__list__item">Türkan</span>
+                                    <span class="search-locations__list__item">Zirə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Qaradağ r.</span>
+                                    <span class="search-locations__list__item">Bibi Heybət</span>
+                                    <span class="search-locations__list__item">Ələt</span>
+                                    <span class="search-locations__list__item">Qızıldaş</span>
+                                    <span class="search-locations__list__item">Qobustan</span>
+                                    <span class="search-locations__list__item">Lökbatan</span>
+                                    <span class="search-locations__list__item">Puta</span>
+                                    <span class="search-locations__list__item">Sahil</span>
+                                    <span class="search-locations__list__item">Səngəçal</span>
+                                    <span class="search-locations__list__item">Şıxov</span>
+                                    <span class="search-locations__list__item">Şubani</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nərimanov r.</span>
+                                    <span class="search-locations__list__item">Böyükşor</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nəsimi r.</span>
+                                    <span class="search-locations__list__item">1-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">2-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">3-cü mikrorayon</span>
+                                    <span class="search-locations__list__item">4-cü mikrorayon</span>
+                                    <span class="search-locations__list__item">5-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">Kubinka</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nizami r.</span>
+                                    <span class="search-locations__list__item">8-ci kilometr</span>
+                                    <span class="search-locations__list__item">Keşlə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Pirallahı r.</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Sabunçu r.</span>
+                                    <span class="search-locations__list__item">Bakıxanov</span>
+                                    <span class="search-locations__list__item">Balaxanı</span>
+                                    <span class="search-locations__list__item">Bilgəh</span>
+                                    <span class="search-locations__list__item">Kürdəxanı</span>
+                                    <span class="search-locations__list__item">Maştağa</span>
+                                    <span class="search-locations__list__item">Məmmədli</span>
+                                    <span class="search-locations__list__item">Nardaran</span>
+                                    <span class="search-locations__list__item">Pirşağı</span>
+                                    <span class="search-locations__list__item">Ramana</span>
+                                    <span class="search-locations__list__item">Sabunçu</span>
+                                    <span class="search-locations__list__item">Savalan</span>
+                                    <span class="search-locations__list__item">Yeni Balaxanı</span>
+                                    <span class="search-locations__list__item">Yeni Ramana</span>
+                                    <span class="search-locations__list__item">Zabrat</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Səbail r.</span>
+                                    <span class="search-locations__list__item">20-ci sahə</span>
+                                    <span class="search-locations__list__item">Badamdar</span>
+                                    <span class="search-locations__list__item">Bayıl</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Suraxanı r.</span>
+                                    <span class="search-locations__list__item">Bahar</span>
+                                    <span class="search-locations__list__item">Bülbülə</span>
+                                    <span class="search-locations__list__item">Dədə Qorqud</span>
+                                    <span class="search-locations__list__item">Əmircan</span>
+                                    <span class="search-locations__list__item">Günəşli</span>
+                                    <span class="search-locations__list__item">Hövsan</span>
+                                    <span class="search-locations__list__item">Qaraçuxur</span>
+                                    <span class="search-locations__list__item">Massiv A</span>
+                                    <span class="search-locations__list__item">Massiv B</span>
+                                    <span class="search-locations__list__item">Massiv D</span>
+                                    <span class="search-locations__list__item">Massiv G</span>
+                                    <span class="search-locations__list__item">Massiv V</span>
+                                    <span class="search-locations__list__item">Suraxanı</span>
+                                    <span class="search-locations__list__item">Şərq</span>
+                                    <span class="search-locations__list__item">Yeni Günəşli</span>
+                                    <span class="search-locations__list__item">Yeni Suraxanı</span>
+                                    <span class="search-locations__list__item">Zığ</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Yasamal r.</span>
+                                    <span class="search-locations__list__item">Yasamal</span>
+                                    <span class="search-locations__list__item">Yeni Yasamal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" data-tab="search-container-tab-content-metro">
+                            <div class="search-locations__list default-list">
+                                <span class="search-locations__list__title location-parent">Metrolar</span>
+                                <div class="search-locations__list__container three-list">
+                                    <span class="search-locations__list__item selected">Dərnəgül</span>
+                                    <span class="search-locations__list__item">Azadlıq Prospekti</span>
+                                    <span class="search-locations__list__item">Nəsimi</span>
+                                    <span class="search-locations__list__item">8 Noyabr</span>
+                                    <span class="search-locations__list__item">Avtovağzal</span>
+                                    <span class="search-locations__list__item">Memar Əcəmi</span>
+                                    <span class="search-locations__list__item">20 Yanvar</span>
+                                    <span class="search-locations__list__item">İnşaatçılar</span>
+                                    <span class="search-locations__list__item">Elmlər Akademiyası</span>
+                                    <span class="search-locations__list__item">Nizami</span>
+                                    <span class="search-locations__list__item">28 May</span>
+                                    <span class="search-locations__list__item">Gənclik</span>
+                                    <span class="search-locations__list__item">Nəriman Nərimanov</span>
+                                    <span class="search-locations__list__item">Bakmil</span>
+                                    <span class="search-locations__list__item">Ulduz</span>
+                                    <span class="search-locations__list__item">Koroğlu</span>
+                                    <span class="search-locations__list__item">Qara Qarayev</span>
+                                    <span class="search-locations__list__item">Neftçilər</span>
+                                    <span class="search-locations__list__item">Xalqlar Dostluğu</span>
+                                    <span class="search-locations__list__item">Əhmədli</span>
+                                    <span class="search-locations__list__item">Həzi Aslanov</span>
+                                    <span class="search-locations__list__item">Şah İsmayıl Xətai</span>
+                                    <span class="search-locations__list__item">Sahil</span>
+                                    <span class="search-locations__list__item">İçəri şəhər</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" data-tab="search-container-tab-content-building">
+                            <div class="search-locations__list">
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Abşeron r.</span>
+                                    <span class="search-locations__list__item selected">Ceyranbatan</span>
+                                    <span class="search-locations__list__item">Çiçək</span>
+                                    <span class="search-locations__list__item">Digah</span>
+                                    <span class="search-locations__list__item">Fatmayı</span>
+                                    <span class="search-locations__list__item">Görədil</span>
+                                    <span class="search-locations__list__item">Hökməli</span>
+                                    <span class="search-locations__list__item">Köhnə Corat</span>
+                                    <span class="search-locations__list__item">Qobu</span>
+                                    <span class="search-locations__list__item">Masazır</span>
+                                    <span class="search-locations__list__item">Mehdiabad</span>
+                                    <span class="search-locations__list__item">Müşviqabad</span>
+                                    <span class="search-locations__list__item">Novxanı</span>
+                                    <span class="search-locations__list__item">Pirəkəşkül</span>
+                                    <span class="search-locations__list__item">Saray</span>
+                                    <span class="search-locations__list__item">Yeni Corat</span>
+                                    <span class="search-locations__list__item">Zağulba</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Binəqədi r.</span>
+                                    <span class="search-locations__list__item">2-ci Alatava</span>
+                                    <span class="search-locations__list__item">28 May</span>
+                                    <span class="search-locations__list__item">6-cı mikrorayon</span>
+                                    <span class="search-locations__list__item">7-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">8-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">9-cu mikrorayon</span>
+                                    <span class="search-locations__list__item">Biləcəri</span>
+                                    <span class="search-locations__list__item">Binəqədi</span>
+                                    <span class="search-locations__list__item">Xocəsən</span>
+                                    <span class="search-locations__list__item">Xutor</span>
+                                    <span class="search-locations__list__item">M.Ə.Rəsulzadə</span>
+                                    <span class="search-locations__list__item">Sulutəpə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Xətai r.</span>
+                                    <span class="search-locations__list__item">Əhmədli</span>
+                                    <span class="search-locations__list__item">Həzi Aslanov</span>
+                                    <span class="search-locations__list__item">Köhnə Günəşli</span>
+                                    <span class="search-locations__list__item">NZS</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Xəzər r.</span>
+                                    <span class="search-locations__list__item">Binə</span>
+                                    <span class="search-locations__list__item">Buzovna</span>
+                                    <span class="search-locations__list__item">Dübəndi</span>
+                                    <span class="search-locations__list__item">Gürgən</span>
+                                    <span class="search-locations__list__item">Qala</span>
+                                    <span class="search-locations__list__item">Mərdəkan</span>
+                                    <span class="search-locations__list__item">Şağan</span>
+                                    <span class="search-locations__list__item">Şimal DRES</span>
+                                    <span class="search-locations__list__item">Şüvəlan</span>
+                                    <span class="search-locations__list__item">Türkan</span>
+                                    <span class="search-locations__list__item">Zirə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Qaradağ r.</span>
+                                    <span class="search-locations__list__item">Bibi Heybət</span>
+                                    <span class="search-locations__list__item">Ələt</span>
+                                    <span class="search-locations__list__item">Qızıldaş</span>
+                                    <span class="search-locations__list__item">Qobustan</span>
+                                    <span class="search-locations__list__item">Lökbatan</span>
+                                    <span class="search-locations__list__item">Puta</span>
+                                    <span class="search-locations__list__item">Sahil</span>
+                                    <span class="search-locations__list__item">Səngəçal</span>
+                                    <span class="search-locations__list__item">Şıxov</span>
+                                    <span class="search-locations__list__item">Şubani</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nərimanov r.</span>
+                                    <span class="search-locations__list__item">Böyükşor</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nəsimi r.</span>
+                                    <span class="search-locations__list__item">1-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">2-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">3-cü mikrorayon</span>
+                                    <span class="search-locations__list__item">4-cü mikrorayon</span>
+                                    <span class="search-locations__list__item">5-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">Kubinka</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nizami r.</span>
+                                    <span class="search-locations__list__item">8-ci kilometr</span>
+                                    <span class="search-locations__list__item">Keşlə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Pirallahı r.</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Sabunçu r.</span>
+                                    <span class="search-locations__list__item">Bakıxanov</span>
+                                    <span class="search-locations__list__item">Balaxanı</span>
+                                    <span class="search-locations__list__item">Bilgəh</span>
+                                    <span class="search-locations__list__item">Kürdəxanı</span>
+                                    <span class="search-locations__list__item">Maştağa</span>
+                                    <span class="search-locations__list__item">Məmmədli</span>
+                                    <span class="search-locations__list__item">Nardaran</span>
+                                    <span class="search-locations__list__item">Pirşağı</span>
+                                    <span class="search-locations__list__item">Ramana</span>
+                                    <span class="search-locations__list__item">Sabunçu</span>
+                                    <span class="search-locations__list__item">Savalan</span>
+                                    <span class="search-locations__list__item">Yeni Balaxanı</span>
+                                    <span class="search-locations__list__item">Yeni Ramana</span>
+                                    <span class="search-locations__list__item">Zabrat</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Səbail r.</span>
+                                    <span class="search-locations__list__item">20-ci sahə</span>
+                                    <span class="search-locations__list__item">Badamdar</span>
+                                    <span class="search-locations__list__item">Bayıl</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Suraxanı r.</span>
+                                    <span class="search-locations__list__item">Bahar</span>
+                                    <span class="search-locations__list__item">Bülbülə</span>
+                                    <span class="search-locations__list__item">Dədə Qorqud</span>
+                                    <span class="search-locations__list__item">Əmircan</span>
+                                    <span class="search-locations__list__item">Günəşli</span>
+                                    <span class="search-locations__list__item">Hövsan</span>
+                                    <span class="search-locations__list__item">Qaraçuxur</span>
+                                    <span class="search-locations__list__item">Massiv A</span>
+                                    <span class="search-locations__list__item">Massiv B</span>
+                                    <span class="search-locations__list__item">Massiv D</span>
+                                    <span class="search-locations__list__item">Massiv G</span>
+                                    <span class="search-locations__list__item">Massiv V</span>
+                                    <span class="search-locations__list__item">Suraxanı</span>
+                                    <span class="search-locations__list__item">Şərq</span>
+                                    <span class="search-locations__list__item">Yeni Günəşli</span>
+                                    <span class="search-locations__list__item">Yeni Suraxanı</span>
+                                    <span class="search-locations__list__item">Zığ</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Yasamal r.</span>
+                                    <span class="search-locations__list__item">Yasamal</span>
+                                    <span class="search-locations__list__item">Yeni Yasamal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" data-tab="search-container-tab-content-landmark">
+                            <div class="search-locations__list">
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Abşeron r.</span>
+                                    <span class="search-locations__list__item selected">Ceyranbatan</span>
+                                    <span class="search-locations__list__item">Çiçək</span>
+                                    <span class="search-locations__list__item">Digah</span>
+                                    <span class="search-locations__list__item">Fatmayı</span>
+                                    <span class="search-locations__list__item">Görədil</span>
+                                    <span class="search-locations__list__item">Hökməli</span>
+                                    <span class="search-locations__list__item">Köhnə Corat</span>
+                                    <span class="search-locations__list__item">Qobu</span>
+                                    <span class="search-locations__list__item">Masazır</span>
+                                    <span class="search-locations__list__item">Mehdiabad</span>
+                                    <span class="search-locations__list__item">Müşviqabad</span>
+                                    <span class="search-locations__list__item">Novxanı</span>
+                                    <span class="search-locations__list__item">Pirəkəşkül</span>
+                                    <span class="search-locations__list__item">Saray</span>
+                                    <span class="search-locations__list__item">Yeni Corat</span>
+                                    <span class="search-locations__list__item">Zağulba</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Binəqədi r.</span>
+                                    <span class="search-locations__list__item">2-ci Alatava</span>
+                                    <span class="search-locations__list__item">28 May</span>
+                                    <span class="search-locations__list__item">6-cı mikrorayon</span>
+                                    <span class="search-locations__list__item">7-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">8-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">9-cu mikrorayon</span>
+                                    <span class="search-locations__list__item">Biləcəri</span>
+                                    <span class="search-locations__list__item">Binəqədi</span>
+                                    <span class="search-locations__list__item">Xocəsən</span>
+                                    <span class="search-locations__list__item">Xutor</span>
+                                    <span class="search-locations__list__item">M.Ə.Rəsulzadə</span>
+                                    <span class="search-locations__list__item">Sulutəpə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Xətai r.</span>
+                                    <span class="search-locations__list__item">Əhmədli</span>
+                                    <span class="search-locations__list__item">Həzi Aslanov</span>
+                                    <span class="search-locations__list__item">Köhnə Günəşli</span>
+                                    <span class="search-locations__list__item">NZS</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Xəzər r.</span>
+                                    <span class="search-locations__list__item">Binə</span>
+                                    <span class="search-locations__list__item">Buzovna</span>
+                                    <span class="search-locations__list__item">Dübəndi</span>
+                                    <span class="search-locations__list__item">Gürgən</span>
+                                    <span class="search-locations__list__item">Qala</span>
+                                    <span class="search-locations__list__item">Mərdəkan</span>
+                                    <span class="search-locations__list__item">Şağan</span>
+                                    <span class="search-locations__list__item">Şimal DRES</span>
+                                    <span class="search-locations__list__item">Şüvəlan</span>
+                                    <span class="search-locations__list__item">Türkan</span>
+                                    <span class="search-locations__list__item">Zirə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Qaradağ r.</span>
+                                    <span class="search-locations__list__item">Bibi Heybət</span>
+                                    <span class="search-locations__list__item">Ələt</span>
+                                    <span class="search-locations__list__item">Qızıldaş</span>
+                                    <span class="search-locations__list__item">Qobustan</span>
+                                    <span class="search-locations__list__item">Lökbatan</span>
+                                    <span class="search-locations__list__item">Puta</span>
+                                    <span class="search-locations__list__item">Sahil</span>
+                                    <span class="search-locations__list__item">Səngəçal</span>
+                                    <span class="search-locations__list__item">Şıxov</span>
+                                    <span class="search-locations__list__item">Şubani</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nərimanov r.</span>
+                                    <span class="search-locations__list__item">Böyükşor</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nəsimi r.</span>
+                                    <span class="search-locations__list__item">1-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">2-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">3-cü mikrorayon</span>
+                                    <span class="search-locations__list__item">4-cü mikrorayon</span>
+                                    <span class="search-locations__list__item">5-ci mikrorayon</span>
+                                    <span class="search-locations__list__item">Kubinka</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Nizami r.</span>
+                                    <span class="search-locations__list__item">8-ci kilometr</span>
+                                    <span class="search-locations__list__item">Keşlə</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Pirallahı r.</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Sabunçu r.</span>
+                                    <span class="search-locations__list__item">Bakıxanov</span>
+                                    <span class="search-locations__list__item">Balaxanı</span>
+                                    <span class="search-locations__list__item">Bilgəh</span>
+                                    <span class="search-locations__list__item">Kürdəxanı</span>
+                                    <span class="search-locations__list__item">Maştağa</span>
+                                    <span class="search-locations__list__item">Məmmədli</span>
+                                    <span class="search-locations__list__item">Nardaran</span>
+                                    <span class="search-locations__list__item">Pirşağı</span>
+                                    <span class="search-locations__list__item">Ramana</span>
+                                    <span class="search-locations__list__item">Sabunçu</span>
+                                    <span class="search-locations__list__item">Savalan</span>
+                                    <span class="search-locations__list__item">Yeni Balaxanı</span>
+                                    <span class="search-locations__list__item">Yeni Ramana</span>
+                                    <span class="search-locations__list__item">Zabrat</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Səbail r.</span>
+                                    <span class="search-locations__list__item">20-ci sahə</span>
+                                    <span class="search-locations__list__item">Badamdar</span>
+                                    <span class="search-locations__list__item">Bayıl</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Suraxanı r.</span>
+                                    <span class="search-locations__list__item">Bahar</span>
+                                    <span class="search-locations__list__item">Bülbülə</span>
+                                    <span class="search-locations__list__item">Dədə Qorqud</span>
+                                    <span class="search-locations__list__item">Əmircan</span>
+                                    <span class="search-locations__list__item">Günəşli</span>
+                                    <span class="search-locations__list__item">Hövsan</span>
+                                    <span class="search-locations__list__item">Qaraçuxur</span>
+                                    <span class="search-locations__list__item">Massiv A</span>
+                                    <span class="search-locations__list__item">Massiv B</span>
+                                    <span class="search-locations__list__item">Massiv D</span>
+                                    <span class="search-locations__list__item">Massiv G</span>
+                                    <span class="search-locations__list__item">Massiv V</span>
+                                    <span class="search-locations__list__item">Suraxanı</span>
+                                    <span class="search-locations__list__item">Şərq</span>
+                                    <span class="search-locations__list__item">Yeni Günəşli</span>
+                                    <span class="search-locations__list__item">Yeni Suraxanı</span>
+                                    <span class="search-locations__list__item">Zığ</span>
+                                </div>
+                                <div class="search-locations__list__container">
+                                    <span class="search-locations__list__title location-parent">Yasamal r.</span>
+                                    <span class="search-locations__list__item">Yasamal</span>
+                                    <span class="search-locations__list__item">Yeni Yasamal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-container-footer">
+                <div class="row gutter-12">
+                    <div class="col-6">
+                        <button class="btn btn-fluid btn-outline btn-outline-md btn-outline-grey font-weight-bold fs-12">TƏMİZLƏ</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-fluid btn-md btn-green font-weight-bold fs-12">AXTARIŞA ƏLAVƏ ET</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success  Modal  -->
+    <div id="success-modal" class="modal modal-center">
+        <div class="modal-holder">
+            <div class="modal-body">
+                <div class="alert alert-success">
+                    <span class="alert-icon icon-checkbox-circle"></span>
+                    <h4 class="alert-title">UĞURLU ƏMƏLİYYAT</h4>
+                    <p class="alert-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus similique
+                        distinctio repudiandae cumque, eum esse?</p>
+                    <div class="alert-action">
+                        <button class="btn btn-fluid btn-md btn-green font-weight-bold" data-izimodal-close="close">Bağla</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warning  Modal  -->
+    <div id="warning-modal" class="modal modal-center">
+        <div class="modal-holder">
+            <div class="modal-body">
+                <div class="alert alert-warning">
+                    <span class="alert-icon icon-warning-circle"></span>
+                    <h4 class="alert-title">XƏBƏRDARLIQ</h4>
+                    <p class="alert-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus similique
+                        distinctio repudiandae cumque, eum esse?</p>
+                    <div class="alert-action">
+                        <button class="btn btn-fluid btn-md btn-orange font-weight-bold" data-izimodal-close="close">Bağla</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info  Modal  -->
+    <div id="info-modal" class="modal modal-center">
+        <div class="modal-holder">
+            <div class="modal-body">
+                <div class="alert alert-info">
+                    <span class="alert-icon icon-information-circle"></span>
+                    <h4 class="alert-title">MƏLUMAT</h4>
+                    <p class="alert-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus similique
+                        distinctio repudiandae cumque, eum esse?</p>
+                    <div class="alert-action">
+                        <button class="btn btn-fluid btn-md btn-blue font-weight-bold" data-izimodal-close="close">Bağla</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error  Modal  -->
+    <div id="error-modal" class="modal modal-center">
+        <div class="modal-holder">
+            <div class="modal-body">
+                <div class="alert alert-error">
+                    <span class="alert-icon icon-close-circle"></span>
+                    <h4 class="alert-title">ƏMƏLİYYATDA SƏHV</h4>
+                    <p class="alert-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus similique
+                        distinctio repudiandae cumque, eum esse?</p>
+                    <div class="alert-action">
+                        <button class="btn btn-fluid btn-md btn-red font-weight-bold" data-izimodal-close="close">Bağla</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/scripts/vendor.js"></script>
+    <script src="assets/scripts/main.js"></script>
+</body>
+
+</html>
