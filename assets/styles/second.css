@@ -1,0 +1,167 @@
+.d-none {
+  display: none;
+}
+.proposal-item__selected:hover span {
+  display: none;
+}
+.proposal-item__selected:hover:before {
+  content: "Sil";
+}
+/* select[data-chosen="0"] ~ .newHome {
+    display: none !important;
+  } */
+select[data-chosen="1"] .rentOrSale {
+  display: none !important;
+}
+.propertyType {
+  display: none;
+}
+.creditSale {
+  display: none;
+}
+.searchCity option {
+  color: red;
+}
+.select2-search__field:focus {
+  outline: 0;
+  border-color: #364857 !important;
+}
+.select2-results__option {
+  padding: 15px;
+}
+.skeleton {
+  animation: skeleton-loading 1s infinite alternate;
+  opacity: 0.7;
+}
+.skeleton-img {
+  height: 100%;
+  width: 100%;
+  /* background: white; */
+}
+.skeleton-card-holder__price {
+  height: 26px;
+  padding: 8px 16px;
+  width: 130px;
+}
+.skeleton-card-holder__title {
+  height: 18px;
+  padding: 8px 16px;
+  width: 65%;
+  margin-bottom: 10px;
+}
+.skeleton-card-holder__feature__item {
+  height: 10px;
+  padding: 8px 16px;
+  width: 45%;
+  /* margin-bottom: 5px; */
+}
+.skeleton-card-holder__status {
+  height: 10px;
+  padding: 8px 16px;
+  width: 45%;
+  margin-bottom: 5px;
+}
+.skeleton-card-holder__date {
+  height: 10px;
+  width: 40%;
+}
+.skeleton-card-holder__note {
+  height: 10px;
+  width: 40%;
+}
+/* .skeleton-text{
+    width: 100%;
+    height: .8rem;
+    border-radius: .125rem;
+  } */
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+/* .areaOfLand{
+    
+  } */
+.load-more {
+  margin-top: 15px;
+}
+.load-more a {
+  text-decoration: none;
+  color: #364857;
+  font-weight: 700;
+  padding: 10px;
+}
+.load-more a:hover {
+  color: rgb(51, 53, 64);
+  background: rgb(245, 247, 250);
+  opacity: 1;
+}
+.filter-search-dropdown {
+  position: relative;
+}
+.filter-search-dropdown--open .filter-search-dropdown-holder {
+  display: block;
+}
+.filter-search-dropdown-holder {
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 4px rgb(0 0 0 / 8%);
+  box-shadow: 0 4px 4px rgb(0 0 0 / 8%);
+  border: 1px solid #c9c9c9;
+  border-top: 0;
+  border-radius: 0 0 2px 2px;
+  z-index: 10;
+}
+.filter-search-dropdown-option {
+  display: block;
+  position: relative;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 18px;
+  color: #364857;
+  border-bottom: 1px solid #c9c9c9;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  padding: 12px 48px 12px 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  cursor: pointer;
+}
+.filter-search-dropdown-option.selected:after {
+  content: "\e923";
+  font-family: icomoon;
+  color: #0a9543;
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+}
+.filter-search-dropdown-option.selected {
+  font-weight: 700;
+}
