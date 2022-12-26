@@ -5,7 +5,9 @@
   $("#resetFunction").on("click", function () {
     // $("#reset-filter-search-form").reset()
     $("#reset-filter-search-form")
-      .find("input:text, input:password, input:file, .number, textarea")
+      .find(
+        "input:text, input:password, :input[type='number'], input:file, .number, textarea"
+      )
       .val("");
     $("#reset-filter-search-form")
       .find("input:radio, input:checkbox")
@@ -20,13 +22,14 @@
       .not(".searchCity")
       .prop("selectedIndex", -1)
       .trigger("change");
+    $(".searchCity").prop("selectedIndex", 1).trigger("change");
     $(".search-container-body__form__result").html("");
     $("#mCSB_1_container").html("");
     document.querySelectorAll(".locationsClickFunction").forEach((item) => {
       item.classList.remove("selected");
     });
 
-    selectedLocations = [];
+    resetSelectedRegion();
   });
 
   /**
@@ -77,63 +80,78 @@
   $("#balance-transfer-modal").on("click", add_button2, function (e) {
     e.preventDefault();
     var wrapper2 = $(".balance-transfer-list");
+    var modalHeight = $(".modal").height();
 
     //Fields wrapper
     var wrappercontent = $(`
-        <div  class="balance-transfer-list__item">
-        <div class="row gutter-12 flex-grow">
-            <div class="col-4">
-                <div class="input-wrapper">
-                    <label class="default-label">KİMDƏN</label>
-                    <div class="input-wrapper select-md has-icon">
-                        <select class="input-control input-control-md select-modal" data-placeholder="Agentin adı">
-                            <option>
-                                <!-- Placeholder üçün boş qalmalıdır -->
-                            </option>
-                            <option value="0" disabled="disabled">Premium Əmlak (premium-emlak@mail.ru)</option>
-                        </select>
-                        <span class="input-icon icon-chevron-down fs-20"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="input-wrapper">
-                    <label class="default-label">KİMƏ</label>
-                    <div class="input-wrapper select-md has-icon">
-                        <select class="input-control input-control-md select-modal" data-placeholder="Göndərilən hesab">
-                            <option>
-                                <!-- Placeholder üçün boş qalmalıdır -->
-                            </option>
-                            <option value="0" selected="selected">Premium Əmlak (premium-emlak@mail.ru)</option>
-                        </select>
-                        <span class="input-icon icon-chevron-down fs-20"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="input-wrapper">
-                    <label class="default-label">MƏBLƏĞ (AZN)</label>
-                    <input type="text" class="input-control input-control-md placeholder-show">
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="input-wrapper">
-                    <label class="default-label">ELANLAR (SAY)</label>
-                    <input type="text" class="input-control input-control-md placeholder-show">
-                </div>
-            </div>
-        </div>
-        <span class="balance-transfer-list__remove icon-trash"></span>
-    </div>
-        `);
-    console.log(e.target.getAttribute("click-id"));
+      <div  class="balance-transfer-list__item">
+      <div class="row gutter-12 flex-grow">
+          <div class="col-4">
+              <div class="input-wrapper">
+                  <label class="default-label">KİMDƏN</label>
+                  <div class="input-wrapper select-md has-icon">
+                      <select class="input-control input-control-md select-modal" data-placeholder="Agentin adı">
+                          <option>
+                              <!-- Placeholder üçün boş qalmalıdır -->
+                          </option>
+                          <option value="0" >Premium Əmlak (premium-emlak@mail.ru)</option>
+                      </select>
+                      <span class="input-icon icon-chevron-down fs-20"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="input-wrapper">
+                  <label class="default-label">KİMƏ</label>
+                  <div class="input-wrapper select-md has-icon">
+                      <select class="input-control input-control-md select-modal" data-placeholder="Göndərilən hesab">
+                          <option>
+                              <!-- Placeholder üçün boş qalmalıdır -->
+                          </option>
+                          <option value="0">Premium Əmlak (premium-emlak@mail.ru)</option>
+                      </select>
+                      <span class="input-icon icon-chevron-down fs-20"></span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-2">
+              <div class="input-wrapper">
+                  <label class="default-label">MƏBLƏĞ (AZN)</label>
+                  <input type="text" class="input-control input-control-md placeholder-show">
+              </div>
+          </div>
+          <div class="col-2">
+              <div class="input-wrapper">
+                  <label class="default-label">ELANLAR (SAY)</label>
+                  <input type="text" class="input-control input-control-md placeholder-show">
+              </div>
+          </div>
+      </div>
+      <span class="balance-transfer-list__remove icon-trash"></span>
+  </div>
+      `);
     if (
       x < max_number2 &&
       wrapper2 &&
       e.target.getAttribute("click-id") == "add"
     ) {
+      $(".modal").css("height", modalHeight + 170 + "px");
+
       x++;
+
+      var code = `<script>
+      
+      $('.select-modal').select2({
+        minimumResultsForSearch: Infinity,
+        dropdownCssClass: "select-md"
+      });</script>`;
+
       wrapper2.append(wrappercontent); //add input box
+
+      $(wrapper2).append($(code)[0]);
+      if (x === 5) {
+        $("#add_transfer_button").css("visibility", "hidden");
+      }
     }
   });
 
@@ -145,6 +163,9 @@
       e.preventDefault();
       $(this).parent("div").remove();
       x--;
+      if (x === 4) {
+        $("#add_transfer_button").css("visibility", "visible");
+      }
     }
   );
   /**
@@ -159,6 +180,11 @@
       parentId: parentId,
       name: name,
     });
+  }
+  function resetSelectedRegion() {
+    selectedLocations = [];
+    searchResult = "";
+    $("#mCSB_1_container").html("");
   }
   function innerHtml(locationParent, parentId) {
     if (locationParent) {
@@ -236,10 +262,10 @@
           );
         }
       });
-      const searchObject = selectedLocations.find(
-        (location) => location.id == 11
-      );
-      console.log(searchObject);
+      // const searchObject = selectedLocations.find(
+      //   (location) => location.id == 11
+      // );
+      // console.log(searchObject);
     } else {
       $(e.target).removeClass("selected");
       document.querySelectorAll(".locationsClickFunction").forEach((item) => {
@@ -254,7 +280,6 @@
         (selectedLocation) => selectedLocation.parentId !== parentId
       );
     }
-    console.log(selectedLocations);
     $(e.target).hasClass("selected")
       ? innerHtml($(e.target).text(), parentId)
       : innerHtml();
@@ -453,19 +478,19 @@
     }
   );
   // reset input on searhRegion
-  $("#landmark-modal").on("click", ".icon-trash", function () {
+  $("#landmark-modal").on("click", ".icon-close", function () {
     $(".input-wrapper").find("input:text").val("");
     var inputVal = $(".input-wrapper").find("input:text").val();
     if (inputVal.length == 0) {
       $(".filter-search-dropdown").removeClass("filter-search-dropdown--open");
     }
-    $(".searchRegion").removeClass("icon-trash").addClass("icon-search");
+    $(".searchRegion").removeClass("icon-close").addClass("icon-search");
   });
 
   function changeTabAndSearch() {
     $("#landmark-modal").on("keyup", `#${getNavigationLink}`, function () {
       // icon change
-      $(".searchRegion").removeClass("icon-search").addClass("icon-trash");
+      $(".searchRegion").removeClass("icon-search").addClass("icon-close");
 
       var value = $(this).val().toLowerCase();
       //bosaltmaq ucun
@@ -518,16 +543,34 @@
         $(".filter-search-dropdown").removeClass(
           "filter-search-dropdown--open"
         );
-        $(".searchRegion").removeClass("icon-trashh").addClass("icon-search");
+        $(".searchRegion").removeClass("icon-close").addClass("icon-search");
       }
     });
+    $("#landmark-modal").on(
+      "click",
+      ".search-container-body__form",
+      function () {
+        console.log("isledi");
+        $(".input-wrapper").find("input:text").val("");
+        // var inputVal = $(".input-wrapper").find("input:text").val();
+        // if (inputVal.length == 0) {
+        //   $(".filter-search-dropdown").removeClass("filter-search-dropdown--open");
+        // }
+        $(".filter-search-dropdown").removeClass(
+          "filter-search-dropdown--open"
+        );
+
+        $(".searchRegion").removeClass("icon-close").addClass("icon-search");
+      }
+    );
   }
   $("#landmark-modal").on("click", ".resetSelectedRegion", function () {
     document.querySelectorAll(".locationsClickFunction").forEach((item) => {
       item.classList.remove("selected");
     });
+    resetSelectedRegion();
+    console.log(selectedLocations, "silindi");
     $(".search-container-body__form__result").html("");
-    selectedLocations = [];
   });
 
   //Select dəyişməsinə uyğun inputların görünməsi
@@ -749,17 +792,164 @@
   $(".card-bookmark").on("click", function () {
     $(this).toggleClass("selected");
   });
-  /// complexx page
-  $("#justAnInputBox1").on("focus", function () {
-    // $(this).parent().parent().parent().addClass("disabled");
-    $("#justAnInputBox2").val("");
-    // console.log($(this).parent().parent())
+  // complex page for disabled
+  $(".searchCity").on("change", function (e) {
+    if (e.target.value == 1) {
+      $(".searchingParametr").removeClass("disabledbutton");
+      $(".forDistrict").removeClass("disabledbutton");
+      $(".forTarget").removeClass("disabledbutton");
+      $(".forMetro").removeClass("disabledbutton");
+    } else {
+      $(".searchingParametr").addClass("disabledbutton");
+      $(".forDistrict").addClass("disabledbutton");
+      $(".forTarget").addClass("disabledbutton");
+      $(".forMetro").addClass("disabledbutton");
+    }
+    console.log(e.target.value);
   });
-
   // button add spinnner
   $("button").on("click", (e) => {
     let spinner = $(e.currentTarget).find("i");
     spinner.removeClass("d-none");
     setTimeout((_) => spinner.addClass("d-none"), 2000);
   });
+  /// only number
+  $('input[type="number"]').keyup(function (e) {
+    $(e.target).val(this.value.match(/[0-9]*/));
+  });
+  $("#moreSearch").on("click", function (e) {
+    var icon = e.target.querySelector("span");
+    icon.classList.toggle("icon-chevron-down");
+    icon.classList.toggle("icon-chevron-up");
+  });
+  // font size increase decrease
+  var $affectedElements = $("div[class=editor-content]");
+  var minFontSize = 12;
+  var maxFontSize = 24;
+
+  $("#btn-increase").click(function () {
+    var recentlyFontSize = $affectedElements.css("font-size").replace("px", "");
+
+    if (recentlyFontSize < maxFontSize) {
+      changeFontSize(1);
+    }
+    console.log(recentlyFontSize, "increase");
+  });
+
+  $("#btn-decrease").click(function () {
+    var recentlyFontSize = $affectedElements.css("font-size").replace("px", "");
+
+    if (recentlyFontSize > minFontSize) {
+      changeFontSize(-1);
+    }
+    console.log(recentlyFontSize, "decrease");
+  });
+
+  function changeFontSize(direction) {
+    $affectedElements.each(function () {
+      var $this = $(this);
+      $this.css("font-size", parseInt($this.css("font-size")) + direction);
+    });
+  }
+
+  // service xidmetler page ---------------------------
+  $(".services-tab__navigation div").on("click", function () {
+    // $(".services-tab__navigation div").removeClass("active");
+    // $(this).addClass("active");
+    // CALL scrollCenter PLUSGIN
+    $(".services-tab__navigation").scrollCenter(".active", 300);
+  });
+  $("#files").on("change", function (e) {
+    var files = e.target.files;
+    var FilseArr = [...files];
+    FilseArr &&
+    FilseArr.map((file, id) => {
+      var f = files[id];
+      var fileReader = new FileReader();
+
+      fileReader.onload = function (e) {
+        var file = e.target;
+        $(`<div class="col-2 col-2-${id} loaded-img__item_col">
+          <div class="loaded-img__item">
+              <div class="loaded-img__item__container">
+                  <img src="${e.target.result}"
+                      class="pic-view-${id}  w-100 h-100 object-fit-cover" alt="${file.name}" data-rotate=${rotation}>
+              </div>
+              <div class="loaded-img__item__settings">
+                  <span
+                      class="loaded-img__item__settings__control removePreviewImg icon-close-bold fs-10"></span>
+                  <span id="rleft"
+                  data-picView="pic-view-${id}"
+                      class="loaded-img__item__settings__control icon-back"></span>
+                  <span id="rright"
+                      class="loaded-img__item__settings__control icon-forward"></span>
+              </div>
+          </div>
+      </div>`).insertAfter(".afterThisPreview");
+        $(".removePreviewImg").click(function () {
+          $(this).parent().parent().parent().remove();
+        });
+        var rotation = 0;
+       
+        $("#rright").click(function (e) {
+          // console.log($(e.target.hash).parent());
+          rotation = (rotation - 90) % 360;
+          $(`.pic-view-${id}`).css({
+            transform: "rotate(" + rotation + "deg)",
+          });
+          $(`.pic-view-${id}`).attr("data-rotate", rotation);
+        });
+
+        $("#rleft").click(function () {
+          console.log("left");
+
+          rotation = (rotation + 90) % 360;
+          $(`.pic-view-${id}`).css({
+            transform: "rotate(" + rotation + "deg)",
+          });
+          // $("#rotation").val(rotation);
+          $(`.pic-view-${id}`).attr("data-rotate", rotation);
+
+        });
+      };
+      fileReader.readAsDataURL(f);
+    });
+  });
+  
+
+  jQuery.fn.scrollCenter = function (elem, speed) {
+    var active = jQuery(this).find(elem);
+    var activeWidth = active.width() / 2;
+
+    var pos = active.position().left + activeWidth;
+    var elpos = jQuery(this).scrollLeft();
+    var elW = jQuery(this).width();
+
+    pos = pos + elpos - elW / 2;
+
+    jQuery(this).animate(
+      {
+        scrollLeft: pos,
+      },
+      speed == undefined ? 1000 : speed
+    );
+    return this;
+  };
+
+  jQuery.fn.scrollCenterORI = function (elem, speed) {
+    jQuery(this).animate(
+      {
+        scrollLeft:
+          jQuery(this).scrollLeft() -
+          jQuery(this).offset().left +
+          jQuery(elem).offset().left,
+      },
+      speed == undefined ? 1000 : speed
+    );
+    return this;
+  };
+
+
+
+  
 })(jQuery);

@@ -137,7 +137,7 @@
                         <a href="javascript:void(0)" id="filter-search-details"
                             class="search-filter__navigation__list__item tab">
                             <span class="search-filter__navigation__list__item__icon icon-search"></span>
-                            <span class="search-filter__navigation__list__item__label">ƏTRAFLI AXTARIŞ</span>
+                            <span class="search-filter__navigation__list__item__label">QISA AXTARIŞ</span>
                         </a>
                     </div>
                 </div>
@@ -313,8 +313,19 @@
                         </div>
                         <div class="tab-content" data-tab="filter-search-details">
                             <div class="filter-search-form">
+                                <div class="input-wrapper select-md has-icon m-b-12">
+                                    <select select-type="buttonForBaku"
+                                        class="changeSelectValue input-control input-control-md searchCity"
+                                        data-placeholder="Şəhər seçin">
+                                        <option value="0">Bütün Şəhərlər</option>
+                                        <option selected="selected" value="1">Bakı</option>
+                                        <option value="2">Qax</option>
+                                        <option value="3">İsmayıllı</option>
+                                    </select>
+                                    <span class="input-icon icon-chevron-down fs-20"></span>
+                                </div>
                                 <button
-                                    class="btn btn-fluid btn-outline btn-outline-lg btn-outline-orange secondary-font letter-spacing-6 m-b-16"
+                                    class="buttonForBaku btn btn-fluid btn-outline btn-outline-lg btn-outline-orange secondary-font letter-spacing-6 m-b-16"
                                     data-izimodal-open="#landmark-modal"><span class="btn-icon icon-pin"></span>Rayon,
                                     qəsəbə, metro, nişangah, MTK</button>
                                 <!-- Begin: Seçim ediləndə ümumi div append olsun -->
@@ -476,6 +487,30 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row gutter-12 areaOfLand flex-middle m-b-12 ">
+                                            <div class="col-5">
+                                                <span class="fs-14 font-weight-semibold color-black-230">TORPAĞIN
+                                                    SAHƏSİ (SOT):</span>
+                                            </div>
+                                            <div class="col-7">
+                                                <!-- <div class="double-input">   -->
+                                                    <div class="double-input">
+                                                        <input type="number" min="0" inputmode="numeric"
+                                                            pattern="[0-9]*" title="Non-negative integral number"
+                                                            class="input-control input-control-md placeholder-show text-center number"
+                                                            placeholder="min">
+                                                        <input type="number" min="0" inputmode="numeric"
+                                                            pattern="[0-9]*" title="Non-negative integral number"
+                                                            class="input-control input-control-md placeholder-show text-center number"
+                                                            placeholder="max">
+                                                    </div>
+                                                <!-- <input type="number" min="0" inputmode="numeric" pattern="[0-9]*"
+                                                    title="Non-negative integral number"
+                                                    class="input-control input-control-md placeholder-show text-center number"
+                                                    placeholder="sot"> -->
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
                                         <div class="input-wrapper forResting select-md has-icon m-b-12">
                                             <select class="input-control input-control-md custom-select-md"
                                                 data-placeholder="İstirahət mərkəzləri">
@@ -515,19 +550,46 @@
                                             </select>
                                             <span class="input-icon icon-chevron-down fs-20"></span>
                                         </div>
-                                        <div class="row gutter-12 flex-middle m-b-12">
-                                            <div class="col-5">
-                                                <span class="fs-14 font-weight-semibold color-black-230">KREDİTLƏ
-                                                    SATIŞ:</span>
+                                        <div class="filter-credit">
+                                            <div class="row gutter-12 flex-middle m-b-12">
+                                                <div class="col-5">
+                                                    <span class="fs-14 font-weight-semibold color-black-230">KREDİTLƏ
+                                                        SATIŞ:</span>
+                                                </div>
+                                                <div class="col-7">
+                                                    <div class="double-input">
+                                                        <input type="number"
+                                                            class="input-control input-control-md placeholder-show text-center"
+                                                            placeholder="ilkin ö.">
+                                                        <input type="number"
+                                                            class="input-control input-control-md placeholder-show text-center"
+                                                            placeholder="aylıq ö.">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-7">
-                                                <div class="double-input">
-                                                    <input type="number"
-                                                        class="input-control input-control-md placeholder-show text-center"
-                                                        placeholder="ilkin ö.">
-                                                    <input type="number"
-                                                        class="input-control input-control-md placeholder-show text-center"
-                                                        placeholder="aylıq ö.">
+                                        </div>
+                                        <div class="filter-rent">
+                                            <div class="row gutter-12 flex-middle m-b-12">
+                                                <div class="col-3">
+                                                    <span
+                                                        class="fs-14 font-weight-semibold color-black-230">İCARƏ:</span>
+                                                </div>
+                                                <div class="col-9">
+                                                    <div class="row gutter-8">
+                                                        <div class="col-6">
+                                                            <label for="rent-monthly" class="radio-base">
+                                                                <input type="checkbox" name="rent" id="rent-monthly"
+                                                                    checked="checked">
+                                                                <div class="radio-base__holder">AYLIQ</div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <label for="rent-daily" class="radio-base">
+                                                                <input type="checkbox" name="rent" id="rent-daily">
+                                                                <div class="radio-base__holder">GÜNLÜK</div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -545,11 +607,12 @@
                                             class="btn-icon icon-search fs-16 vertical-top"></span>NƏTİCƏLƏRİ GÖSTƏR
                                         (2394)</button>
                                     <div class="flex flex-middle flex-center">
-                                        <span
-                                            class="more-search-toggle link fs-12 text-decoration-underline font-weight-medium color-black-60 m-t-12 m-l-12 m-r-12">Ətraflı
-                                            Axtarış</span>
+                                        <span id="moreSearch"
+                                            class="raundedButton more-search-toggle link fs-12  font-weight-medium color-black-60 m-t-12 m-l-12 m-r-12">Ətraflı
+                                            Axtarış <span class="icon-chevron-down"></span>
+                                        </span>
                                         <span id="resetFunction"
-                                            class="link fs-12 text-decoration-underline font-weight-medium color-black-60 m-t-12 m-l-12 m-r-12">Seçimləri
+                                            class="raundedButton link fs-12 font-weight-medium color-black-60 m-t-12 m-l-12 m-r-12">Seçimləri
                                             Sıfırla</span>
                                     </div>
                                 </div>
@@ -1523,7 +1586,7 @@
                             class="font-weight-bold color-blue-300">Bakı</span></div>
 
                     <div class="search-container-header__action">
-                        <div class="modal-close icon-close" data-izimodal-close="close"></div>
+                        <div class="modal-close icon-close resetSelectedRegion" data-izimodal-close="close"></div>
                     </div>
                 </div>
                 <div class="search-container-body__form">
@@ -1535,7 +1598,7 @@
                                         <input type="text" id="search-container-tab-content-region"
                                             class="input-control input-control-ml placeholder-show"
                                             placeholder="Rayon və qəsəbə axtarışı">
-                                        <span class="input-icon searchRegion icon-search"></span>
+                                        <span style="cursor: pointer;" class="input-icon searchRegion icon-search"></span>
                                     </div>
                                     <div class="filter-search-dropdown-holder">
                                         <!-- <span class="filter-search-dropdown-option selected">Abşeron</span>
@@ -1557,7 +1620,7 @@
                                         <input type="text" id="search-container-tab-content-metro"
                                             class="input-control input-control-ml placeholder-show"
                                             placeholder="Metro axtarışı">
-                                        <span class="input-icon searchRegion icon-search"></span>
+                                        <span style="cursor: pointer;" class="input-icon searchRegion icon-search"></span>
                                     </div>
                                     <div class="filter-search-dropdown-holder">
                                         <!-- <span class="filter-search-dropdown-option selected">Abşeron</span>
@@ -1579,7 +1642,7 @@
                                         <input id="search-container-tab-content-building" type="text"
                                             class="input-control input-control-ml placeholder-show"
                                             placeholder="MTK axtarışı">
-                                        <span class="input-icon searchRegion icon-search"></span>
+                                        <span style="cursor: pointer;" class="input-icon searchRegion icon-search"></span>
                                     </div>
                                     <div class="filter-search-dropdown-holder">
                                         <!-- <span class="filter-search-dropdown-option selected">Abşeron</span>
@@ -1601,7 +1664,7 @@
                                         <input id="search-container-tab-content-landmark" type="text"
                                             class="input-control input-control-ml placeholder-show"
                                             placeholder="Nişangah axtarışı">
-                                        <span class="input-icon searchRegion icon-search"></span>
+                                        <span style="cursor: pointer;" class="input-icon searchRegion icon-search"></span>
                                     </div>
                                     <div class="filter-search-dropdown-holder">
                                         <!-- <span class="filter-search-dropdown-option selected">Abşeron</span>

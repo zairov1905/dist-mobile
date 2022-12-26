@@ -479,7 +479,50 @@
         </div>
     </footer>
     <!-- End   :: Footer -->
-
+    <!-- Balance  Modal  -->
+    <div id="balance-modal" class="modal modal-sm">
+        <div class="modal-holder">
+            <div class="modal-header">
+                <h4 class="modal-header__title">Balansı Artır</h4>
+                <div class="modal-close icon-close" data-izimodal-close="close"></div>
+            </div>
+            <div class="modal-body">
+                <div class="option-list m-t-0 p-b-0 border-none">
+                    <h4 class="option-list__title">Artırılacaq məbləği daxil edin</h4>
+                    <div class="input-wrapper has-icon m-t-8 m-b-8">
+                        <input type="text" class="input-control input-control-md" placeholder="Məbləğ">
+                        <label for="" class="floating-label">Məbləğ</label>
+                        <span class="input-icon icon-azn fs-14"></span>
+                    </div>
+                </div>
+                <div class="option-list">
+                    <h4 class="option-list__title">Ödəniş üsulunu seçin</h4>
+                    <div class="option-list__item">
+                        <label for="bank-card" class="radio">
+                            <input type="radio" id="bank-card" name="payment" checked="checked">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">Bank kartı</span>
+                        </label>
+                    </div>
+                    <div class="option-list__item">
+                        <label for="portmanat" class="radio">
+                            <input type="radio" id="portmanat" name="payment">
+                            <span class="radio-control theme-orange"></span>
+                            <span class="radio-label color-black-230">Portmanat (terminallarda ödəniş)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-fluid btn-md btn-orange font-weight-bold">ÖDƏ</button>
+                <div class="modal-note m-t-16">
+                    «Ödə» düyməsini sıxmaqla siz Emlak.az-ın
+                    <a href="#" target="_blank" class="link color-blue-300">İstifadəçi razılaşmasını</a> və <a href="#" target="_blank" class="link color-blue-300">Qaydalarını</a> qəbul
+                    etdiyinizi təsdiqləmiş olursunuz.
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/scripts/vendor.js"></script>
     <script src="assets/scripts/main.js"></script>
 </body>

@@ -568,13 +568,17 @@
                                 </div>
                                 <div class="property-img-upload-container">
                                     <div class="upload-img m-b-12">
-                                        <button
+                                        <input style="display: none;" type="file" id="files" name="files[]" multiple />
+                                        <input type="hidden" name="rotation" id="rotation" value="0" />
+                                        <button onclick="document.getElementById('files').click()"
                                             class="btn btn-width-lg btn-md btn-orange font-weight-bold color-black-220"><span
                                                 class="btn-icon icon-camera"></span>ŞƏKİLLƏR DAXİL EDİN</button>
                                     </div>
                                     <div class="loaded-img">
-                                        <div class="row gutter-8">
-                                            <div class="col-3">
+                                        <div class="row gutter-8 img-preview_row">
+                                            <div class="afterThisPreview"></div>
+
+                                            <!-- <div class="col-3">
                                                 <div class="loaded-img__item">
                                                     <div class="loaded-img__item__container">
                                                         <img src="assets/images/template/card/card-1.png"
@@ -589,87 +593,8 @@
                                                             class="loaded-img__item__settings__control icon-forward"></span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="loaded-img__item">
-                                                    <div class="loaded-img__item__container">
-                                                        <img src="assets/images/template/card/card-2.png"
-                                                            class="w-100 h-100 object-fit-cover" alt="uploaded img">
-                                                    </div>
-                                                    <div class="loaded-img__item__settings">
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-close-bold fs-10"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-back"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-forward"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="loaded-img__item">
-                                                    <div class="loaded-img__item__container">
-                                                        <img src="assets/images/template/card/card-3.png"
-                                                            class="w-100 h-100 object-fit-cover" alt="uploaded img">
-                                                    </div>
-                                                    <div class="loaded-img__item__settings">
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-close-bold fs-10"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-back"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-forward"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="loaded-img__item">
-                                                    <div class="loaded-img__item__container">
-                                                        <img src="assets/images/template/card/card-4.png"
-                                                            class="w-100 h-100 object-fit-cover" alt="uploaded img">
-                                                    </div>
-                                                    <div class="loaded-img__item__settings">
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-close-bold fs-10"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-back"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-forward"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="loaded-img__item">
-                                                    <div class="loaded-img__item__container">
-                                                        <img src="assets/images/template/card/card-5.png"
-                                                            class="w-100 h-100 object-fit-cover" alt="uploaded img">
-                                                    </div>
-                                                    <div class="loaded-img__item__settings">
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-close-bold fs-10"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-back"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-forward"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="loaded-img__item">
-                                                    <div class="loaded-img__item__container">
-                                                        <img src="assets/images/template/card/card-6.png"
-                                                            class="w-100 h-100 object-fit-cover" alt="uploaded img">
-                                                    </div>
-                                                    <div class="loaded-img__item__settings">
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-close-bold fs-10"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-back"></span>
-                                                        <span
-                                                            class="loaded-img__item__settings__control icon-forward"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </div> -->
+
                                         </div>
                                         <div class="upload-rules m-t-32 m-b-12">
                                             <div class="upload-rules__item">
