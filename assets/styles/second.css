@@ -312,12 +312,11 @@ select[data-chosen="1"] .rentOrSale {
   position: absolute;
   width: 20px;
   height: 20px;
-  color: #FFF;
+  color: #f3b602;
   /* font-size: 12PX; */
   top: 4px;
-  left: 268px;
-  font-size: 1.26em!important;
-}
+  left: 26px; 
+  font-size: 23px!important;}
 .phone-area__preview {
   position: absolute;
   top: 0;
@@ -420,4 +419,17 @@ select[data-chosen="1"] .rentOrSale {
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 24px 34px 0 0;
+}
+.fontSize-0_8{
+  font-size: 0.8em;
+}
+.fontSize-1_2{
+  font-size: 1.2em;
+}
+.pointer-none_event{
+  pointer-events: none;
+}
+
+.icon-box{
+  position: relative
 }

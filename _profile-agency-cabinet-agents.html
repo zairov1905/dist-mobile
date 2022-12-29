@@ -135,7 +135,7 @@
             <div class="profile-holder">
                 <div class="agent-card-list">
                     <div class="agent-card equal-height">
-                        <div class="agent-card__heading">
+                        <div class="agent-card__heading pointer-none_event">
                             <span class="agent-card__heading__title">Premium Əmlak</span>
                             <span class="agent-card__heading__action color-orange-300 icon-star"></span>
                         </div>
@@ -463,11 +463,11 @@
                 <h4 class="modal-header__title">Balansın köçürülməsi</h4>
                 <div class="modal-close icon-close" data-izimodal-close="close"></div>
             </div>
-            <div class="modal-body">
+            <div class="modal-body fontSize-0_8">
                 <div id="balance-transfer-list" class="balance-transfer-list">
                     <div class="balance-transfer-list__item">
                         <div class="row gutter-12 flex-grow">
-                            <div class="col-4">
+                            <div class="col-8 m-b-12">
                                 <div class="input-wrapper">
                                     <label class="default-label">KİMDƏN</label>
                                     <div class="input-wrapper select-md has-icon">
@@ -483,6 +483,12 @@
                             </div>
                             <div class="col-4">
                                 <div class="input-wrapper">
+                                    <label class="default-label">MƏBLƏĞ (AZN)</label>
+                                    <input type="number" class="input-control input-control-md placeholder-show">
+                                </div>
+                            </div>
+                            <div class="col-8 m-b-12">
+                                <div class="input-wrapper">
                                     <label class="default-label">KİMƏ</label>
                                     <div class="input-wrapper select-md has-icon">
                                         <select class="input-control input-control-md select-modal" data-placeholder="Göndərilən hesab">
@@ -495,16 +501,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
-                                <div class="input-wrapper">
-                                    <label class="default-label">MƏBLƏĞ (AZN)</label>
-                                    <input type="text" class="input-control input-control-md placeholder-show">
-                                </div>
-                            </div>
-                            <div class="col-2">
+
+                            <div class="col-4">
                                 <div class="input-wrapper">
                                     <label class="default-label">ELANLAR (SAY)</label>
-                                    <input type="text" class="input-control input-control-md placeholder-show">
+                                    <input type="number" class="input-control input-control-md placeholder-show">
                                 </div>
                             </div>
                         </div>

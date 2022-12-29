@@ -86,7 +86,7 @@
     var wrappercontent = $(`
       <div  class="balance-transfer-list__item">
       <div class="row gutter-12 flex-grow">
-          <div class="col-4">
+          <div class="col-8 m-b-12">
               <div class="input-wrapper">
                   <label class="default-label">KİMDƏN</label>
                   <div class="input-wrapper select-md has-icon">
@@ -101,6 +101,12 @@
               </div>
           </div>
           <div class="col-4">
+          <div class="input-wrapper">
+              <label class="default-label">MƏBLƏĞ (AZN)</label>
+              <input type="number" class="input-control input-control-md placeholder-show">
+          </div>
+          </div>
+          <div class="col-8 m-b-12">
               <div class="input-wrapper">
                   <label class="default-label">KİMƏ</label>
                   <div class="input-wrapper select-md has-icon">
@@ -114,16 +120,11 @@
                   </div>
               </div>
           </div>
-          <div class="col-2">
-              <div class="input-wrapper">
-                  <label class="default-label">MƏBLƏĞ (AZN)</label>
-                  <input type="text" class="input-control input-control-md placeholder-show">
-              </div>
-          </div>
-          <div class="col-2">
+
+          <div class="col-4">
               <div class="input-wrapper">
                   <label class="default-label">ELANLAR (SAY)</label>
-                  <input type="text" class="input-control input-control-md placeholder-show">
+                  <input type="number" class="input-control input-control-md placeholder-show">
               </div>
           </div>
       </div>
@@ -818,9 +819,22 @@
     $(e.target).val(this.value.match(/[0-9]*/));
   });
   $("#moreSearch").on("click", function (e) {
-    var icon = e.target.querySelector("span");
-    icon.classList.toggle("icon-chevron-down");
-    icon.classList.toggle("icon-chevron-up");
+    $(this).toggleClass('active');
+    if( $(this).hasClass('active')){
+      $(".more-icon").removeClass('icon-chevron-down').addClass('icon-chevron-up');
+      $(".more-text").text("Qısa Axtarış");
+    }
+    else{
+      $(".more-icon").removeClass('icon-chevron-up').addClass('icon-chevron-down');
+      $(".more-text").text("Ətraflı Axtarış");
+
+
+    }
+
+    // var icon = e.target.querySelector(".more-icon");
+    // icon.classList.toggle("icon-chevron-down");
+    // icon.classList.toggle("icon-chevron-up");
+    
   });
   // font size increase decrease
   var $affectedElements = $("div[class=editor-content]");
@@ -863,13 +877,13 @@
     var files = e.target.files;
     var FilseArr = [...files];
     FilseArr &&
-    FilseArr.map((file, id) => {
-      var f = files[id];
-      var fileReader = new FileReader();
+      FilseArr.map((file, id) => {
+        var f = files[id];
+        var fileReader = new FileReader();
 
-      fileReader.onload = function (e) {
-        var file = e.target;
-        $(`<div class="col-2 col-2-${id} loaded-img__item_col">
+        fileReader.onload = function (e) {
+          var file = e.target;
+          $(`<div class="col-2 col-2-${id} loaded-img__item_col">
           <div class="loaded-img__item">
               <div class="loaded-img__item__container">
                   <img src="${e.target.result}"
@@ -886,36 +900,34 @@
               </div>
           </div>
       </div>`).insertAfter(".afterThisPreview");
-        $(".removePreviewImg").click(function () {
-          $(this).parent().parent().parent().remove();
-        });
-        var rotation = 0;
-       
-        $("#rright").click(function (e) {
-          // console.log($(e.target.hash).parent());
-          rotation = (rotation - 90) % 360;
-          $(`.pic-view-${id}`).css({
-            transform: "rotate(" + rotation + "deg)",
+          $(".removePreviewImg").click(function () {
+            $(this).parent().parent().parent().remove();
           });
-          $(`.pic-view-${id}`).attr("data-rotate", rotation);
-        });
+          var rotation = 0;
 
-        $("#rleft").click(function () {
-          console.log("left");
-
-          rotation = (rotation + 90) % 360;
-          $(`.pic-view-${id}`).css({
-            transform: "rotate(" + rotation + "deg)",
+          $("#rright").click(function (e) {
+            // console.log($(e.target.hash).parent());
+            rotation = (rotation - 90) % 360;
+            $(`.pic-view-${id}`).css({
+              transform: "rotate(" + rotation + "deg)",
+            });
+            $(`.pic-view-${id}`).attr("data-rotate", rotation);
           });
-          // $("#rotation").val(rotation);
-          $(`.pic-view-${id}`).attr("data-rotate", rotation);
 
-        });
-      };
-      fileReader.readAsDataURL(f);
-    });
+          $("#rleft").click(function () {
+            console.log("left");
+
+            rotation = (rotation + 90) % 360;
+            $(`.pic-view-${id}`).css({
+              transform: "rotate(" + rotation + "deg)",
+            });
+            // $("#rotation").val(rotation);
+            $(`.pic-view-${id}`).attr("data-rotate", rotation);
+          });
+        };
+        fileReader.readAsDataURL(f);
+      });
   });
-  
 
   jQuery.fn.scrollCenter = function (elem, speed) {
     var active = jQuery(this).find(elem);
@@ -948,8 +960,4 @@
     );
     return this;
   };
-
-
-
-  
 })(jQuery);

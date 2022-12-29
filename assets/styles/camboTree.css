@@ -6,50 +6,48 @@
  * Version: 1.2.1
  */
 
-
 :root {
-    --ct-bg: #fff;
-    --ct-btn-hover: #e8e8e8;
-    --ct-btn-active: #ddd;
-    --ct-btn-color: #555;
-    --ct-border-color: #e1e1e1;
-    --ct-border-radius: 5px;
-    --ct-tree-hover: #efefef;
-    --ct-selection: #418EFF;
-    --ct-padding: 14px;
+  --ct-bg: #fff;
+  --ct-btn-hover: #e8e8e8;
+  --ct-btn-active: #ddd;
+  --ct-btn-color: #555;
+  --ct-border-color: #e1e1e1;
+  --ct-border-radius: 5px;
+  --ct-tree-hover: #efefef;
+  --ct-selection: #418eff;
+  --ct-padding: 14px;
 }
 
-
-.comboTreeWrapper{
-	position: relative;
-	text-align: left !important;
+.comboTreeWrapper {
+  position: relative;
+  text-align: left !important;
 }
 
-.comboTreeInputWrapper{
-	position: relative;
+.comboTreeInputWrapper {
+  position: relative;
 }
 
 .comboTreeArrowBtn {
-    position: absolute;
-    right: 12px;
-    top:13px;
-    border: none;
-    outline: none;
-    width: 20px;
-    height: 20px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    font-size: 16px;
-    color: #aaa;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+  position: absolute;
+  right: 12px;
+  top: 13px;
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #aaa;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 /* .comboTreeArrowBtn:hover {
@@ -59,121 +57,123 @@
     background: var(--ct-btn-active);
 } */
 .comboTreeInputBox:focus + .comboTreeArrowBtn {
-    right: 12px;
-    top:12px;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+  right: 12px;
+  top: 12px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
-.comboTreeArrowBtnImg{
-    font-size: 1.25rem;
+.comboTreeArrowBtnImg {
+  font-size: 1.25rem;
 }
 
 .comboTreeDropDownContainer {
-	display: none;
-	background: var(--ct-bg);
-	border: 1px solid var(--ct-border-color);
-	position: absolute;
+  display: none;
+  background: var(--ct-bg);
+  border: 1px solid var(--ct-border-color);
+  position: absolute;
   width: 100%;
   box-sizing: border-box;
   z-index: 999;
-	max-height: 250px;
-	overflow-y: auto;
+  max-height: 250px;
+  overflow-y: auto;
 }
 
-.comboTreeDropDownContainer ul{
-	padding: 0px;
-	margin: 0;
+.comboTreeDropDownContainer ul {
+  padding: 0px;
+  margin: 0;
 }
 
-.comboTreeDropDownContainer li{
-	list-style-type: none;
-	padding-left: 15px;
+.comboTreeDropDownContainer li {
+  list-style-type: none;
+  padding-left: 15px;
 }
 
-.comboTreeDropDownContainer li .selectable{
-	cursor: pointer;
+.comboTreeDropDownContainer li .selectable {
+  cursor: pointer;
 }
 
-.comboTreeDropDownContainer li .not-selectable{
-	cursor: not-allowed;
+.comboTreeDropDownContainer li .not-selectable {
+  cursor: not-allowed;
 }
 
-
-.comboTreeDropDownContainer li:hover{
-	background-color: var(--ct-tree-hover);}
-.comboTreeDropDownContainer li:hover ul{
-	background-color: var(--ct-bg)}
+.comboTreeDropDownContainer li:hover {
+  background-color: var(--ct-tree-hover);
+}
+.comboTreeDropDownContainer li:hover ul {
+  background-color: var(--ct-bg);
+}
 .comboTreeDropDownContainer li span.comboTreeItemTitle.comboTreeItemHover,
-.comboTreeDropDownContainer label.comboTreeItemHover
-{
-    background-color: #f3f3f3;
-    color: #334252;
-    /* font-weight: 700; */
+.comboTreeDropDownContainer label.comboTreeItemHover {
+  background-color: #f3f3f3;
+  color: #334252;
+  /* font-weight: 700; */
 }
 
-span.comboTreeItemTitle, .comboTreeDropDownContainer .selectAll{
-	display: block;
-    padding: 10px var(--ct-padding);
+span.comboTreeItemTitle,
+.comboTreeDropDownContainer .selectAll {
+  display: block;
+  padding: 10px var(--ct-padding);
 }
-.comboTreeDropDownContainer label{
-    cursor: pointer;
-	/* width: 100%; */
-    /* display: block; */
+.comboTreeDropDownContainer label {
+  cursor: pointer;
+  /* width: 100%; */
+  /* display: block; */
 }
 .comboTreeDropDownContainer .comboTreeItemTitle input,
 .comboTreeDropDownContainer .selectAll input {
-	position: relative;
-    top: -1px;
-	margin: 0px 4px 0px 0px;
+  position: relative;
+  top: -1px;
+  margin: 0px 4px 0px 0px;
 }
-.comboTreeParentPlus{
-    position: relative;
-    left: -12px;
-    top: 4px;
-    width: 4px;
-    float: left;
-		cursor: pointer;
+.comboTreeParentPlus {
+  position: relative;
+  left: -7px;
+  top: 9px;
+  width: 30px;
+  float: right;
+  cursor: pointer;
 }
-
 
 .comboTreeInputBox {
-	padding: var(--ct-padding);
-    /* border-radius: var(--ct-border-radius); */
-    border: 1px solid var(--ct-border-color);
-    width: 100%;
-    box-sizing: border-box;
-    padding-right: 24px;
-    display: block;
-    background-color: #fff;
-    border: 1px solid #c9c9c9;
-    font-family: Arial;
-    font-size: 14px;
-    color: #334252;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: pointer;
-    outline: 0!important;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+  padding: var(--ct-padding);
+  /* border-radius: var(--ct-border-radius); */
+  border: 1px solid var(--ct-border-color);
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 24px;
+  display: block;
+  background-color: #fff;
+  border: 1px solid #c9c9c9;
+  font-family: Arial;
+  font-size: 14px;
+  color: #334252;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  outline: 0 !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .comboTreeInputBox:focus {
-    border: 1px solid var(--ct-selection);
-    outline-width: 0;
+  border: 1px solid var(--ct-selection);
+  outline-width: 0;
 }
 
-
-.multiplesFilter{
-	width: 100%;
-	padding: 14px;
-	box-sizing: border-box;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-    outline: none;
-	border-bottom: 1px solid var(--ct-border-color);
+.multiplesFilter {
+  width: 100%;
+  padding: 14px;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  border-bottom: 1px solid var(--ct-border-color);
+}
+.ComboTreeItemParent {
+  padding-left: 0px !important;
 }

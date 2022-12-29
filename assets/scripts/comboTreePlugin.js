@@ -145,7 +145,7 @@
     itemHtml += '<LI id="' + this.comboTreeId + 'Li' + sourceItem.id + '" class="ComboTreeItem' + (isThereSubs?'Parent':'Chlid') + '"> ';
 
     if (isThereSubs)
-      itemHtml += '<span class="comboTreeParentPlus">' + (this.options.collapse || collapse ? '<span class="mdi mdi-chevron-right-circle-outline"></span>' : '<span class="mdi mdi-chevron-down-circle-outline"></span>') + '</span>'; // itemHtml += '<span class="comboTreeParentPlus">' + (this.options.collapse ? '+' : '&minus;') + '</span>';
+      itemHtml += '<span class="comboTreeParentPlus">' + (this.options.collapse || collapse ? '<span class="mdi mdi-chevron-up comboTreeArrowBtnImg"></span>' : '<span class="mdi mdi-chevron-down comboTreeArrowBtnImg"></span>') + '</span>'; // itemHtml += '<span class="comboTreeParentPlus">' + (this.options.collapse ? '+' : '&minus;') + '</span>';
 
     if (this.options.isMultiple)
       itemHtml += '<span data-id="' + sourceItem.id + '" data-selectable="' + isSelectable + '" class="comboTreeItemTitle ' + selectableClass + '">' + (!selectableLastNode && isSelectable ? '<input class="checkStyle" type="checkbox"/>' : '') + sourceItem.title + '</span>';
@@ -317,19 +317,19 @@
     var subMenu = $(item).children('ul')[0];
     if (direction === undefined){
       if ($(subMenu).is(':visible'))
-        $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-right-circle-outline"></span>'); //$(item).children('span.comboTreeParentPlus').html("+");
+        $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-up comboTreeArrowBtnImg"></span>'); //$(item).children('span.comboTreeParentPlus').html("+");
       else
-        $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-down-circle-outline"></span>'); //$(item).children('span.comboTreeParentPlus').html("&minus;");
+        $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-down comboTreeArrowBtnImg"></span>'); //$(item).children('span.comboTreeParentPlus').html("&minus;");
 
       $(subMenu).slideToggle(50);
     }
     else if (direction == 1 && !$(subMenu).is(':visible')){
-      $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-down-circle-outline"></span>'); //$(item).children('span.comboTreeParentPlus').html("&minus;");
+      $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-down comboTreeArrowBtnImg"></span>'); //$(item).children('span.comboTreeParentPlus').html("&minus;");
       $(subMenu).slideDown(50);
     }
     else if (direction == -1){
       if ($(subMenu).is(':visible')){
-        $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-right-circle-outline"></span>'); //$(item).children('span.comboTreeParentPlus').html("+");
+        $(item).children('span.comboTreeParentPlus').html('<span class="mdi mdi-chevron-up comboTreeArrowBtnImg"></span>'); //$(item).children('span.comboTreeParentPlus').html("+");
         $(subMenu).slideUp(50);
       }
       else {
