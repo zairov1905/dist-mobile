@@ -433,3 +433,13 @@ select[data-chosen="1"] .rentOrSale {
 .icon-box{
   position: relative
 }
+.property-detail__favorite:before {
+  color: #ff5f5f;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+  line-height: 32px!important;
+} 
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  border: 1px solid #aaaaaa05!important;
+}
+/* .select2-search__field{width:100% !important;} */

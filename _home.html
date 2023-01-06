@@ -526,14 +526,15 @@
                                             <span class="input-icon icon-chevron-down fs-20"></span>
                                         </div>
                                         <div class="input-wrapper floorLocation select-md has-icon m-b-12">
-                                            <select class="input-control input-control-md custom-select-md"
-                                                data-placeholder="Mərtəbə yerləşməsi">
-                                                <option>
+                                            <select class="input-control changeFloorLocationValue input-control-md custom-select-md"
+                                                data-placeholder="Mərtəbə yerləşməsi" multiple>
+                                                <option selected disabled>
+                                                    Mərtəbə yerləşməsi
                                                     <!-- Placeholder üçün boş qalmalıdır -->
                                                 </option>
-                                                <option value="0">1-ci olmasın</option>
-                                                <option value="1">Ən üst olmasın</option>
-                                                <option value="2">Yalnız ən üst</option>
+                                                <option id="exceptFirst"  value="exceptFirst">1-ci olmasın</option>
+                                                <option id="exceptTop" value="exceptTop">Ən üst olmasın</option>
+                                                <option id="onlyTop" value="onlyTop">Yalnız ən üst</option>
                                             </select>
                                             <span class="input-icon icon-chevron-down fs-20"></span>
                                         </div>

@@ -103,7 +103,7 @@
           <div class="col-4">
           <div class="input-wrapper">
               <label class="default-label">MƏBLƏĞ (AZN)</label>
-              <input type="number" class="input-control input-control-md placeholder-show">
+              <input type="number" class="input-control number input-control-md placeholder-show">
           </div>
           </div>
           <div class="col-8 m-b-12">
@@ -124,7 +124,7 @@
           <div class="col-4">
               <div class="input-wrapper">
                   <label class="default-label">ELANLAR (SAY)</label>
-                  <input type="number" class="input-control input-control-md placeholder-show">
+                  <input type="number" class="input-control number input-control-md placeholder-show">
               </div>
           </div>
       </div>
@@ -777,6 +777,50 @@
         break;
     }
   });
+  // $('.select2-input, .select2-default').css('width', '100%');
+  var clickedElement;
+  $(".changeFloorLocationValue").on("select2:selecting", function (e) {
+    // what you would like to happen
+    // var selectedValues = e.params.data;
+    clickedElement = e.params.args.data.id;
+    return clickedElement;
+    // console.log(selectedValues && selectedValues);
+    // console.log(clickedElement);
+  });
+  $(".changeFloorLocationValue").on("change", function (e) {
+    var selectedValues = $(".changeFloorLocationValue").val();
+    var optVal = $(".changeFloorLocationValue option:selected").attr("id");
+    // var lastSelectedValue = selectedValues &&  selectedValues.pop();
+    // console.log(selectedValues, "secilmemisler");
+
+    if (clickedElement == "exceptFirst") {
+      selectedValues = selectedValues.filter(
+        (selected) => selected != "onlyTop"
+      );
+      $(".changeFloorLocationValue").val(selectedValues);
+    }
+
+    if (clickedElement == "onlyTop") {
+      selectedValues = selectedValues.filter(
+        (selected) => selected != "exceptFirst"
+      );
+      $(".changeFloorLocationValue").val(selectedValues);
+    }
+
+    if (clickedElement == "exceptTop") {
+      selectedValues = selectedValues.filter(
+        (selected) => selected != "onlyTop"
+      );
+      $(".changeFloorLocationValue").val(selectedValues);
+    }
+
+    if (clickedElement == "onlyTop") {
+      selectedValues = selectedValues.filter(
+        (selected) => selected != "exceptTop"
+      );
+      $(".changeFloorLocationValue").val(selectedValues);
+    }
+  });
   //search select2
   $(".searchCity").select2();
   $(".plan-tab__item").on("click", function () {
@@ -793,6 +837,10 @@
   $(".card-bookmark").on("click", function () {
     $(this).toggleClass("selected");
   });
+  $(".property-detail__favorite").on("click", function () {
+    $(this).toggleClass("active");
+  });
+  
   // complex page for disabled
   $(".searchCity").on("change", function (e) {
     if (e.target.value == 1) {
