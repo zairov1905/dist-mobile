@@ -187,6 +187,8 @@
     searchResult = "";
     $("#mCSB_1_container").html("");
   }
+  // vuqar innerHtml de bir classi silmiwem bax
+
   function innerHtml(locationParent, parentId) {
     if (locationParent) {
       searchResult = `<span class="search-locations__list__item location-parent  selected" parent=${parentId}>${locationParent}</span>`;
@@ -199,7 +201,7 @@
 
     $(".search-container-body__form__result").html(searchResult);
   }
-  $("#landmark-modal").on(
+  $("#landmark-modal, .form-selected ").on(
     "click",
     ".locationsClickFunction",
     "filter-search-dropdown-option",
@@ -208,6 +210,9 @@
       $id = e.target.getAttribute("data-id");
       $parentId = e.target.getAttribute("parent-id");
       $name = e.target.innerText;
+      var sumOfChildLocation = document.querySelectorAll(
+        `[parent-id="${$parentId}"]`
+      ).length;
       if (
         $targetedElement.hasClass("selected") &&
         !$targetedElement.hasClass("location-parent")
@@ -222,18 +227,32 @@
         !$targetedElement.hasClass("location-parent")
       ) {
         pushSelectedLocations($id, $parentId, $name);
+
+        var selectedLength = selectedLocations.filter(
+          (selected) => selected.parentId == $parentId
+        ).length;
+        if (selectedLength == sumOfChildLocation) {
+          $(`[parent="${$parentId}"]`).addClass("selected");
+        }
+
         $selected = $(`[data-id=${$id}]`).addClass("selected");
       }
-      innerHtml();
+      selectedLength == sumOfChildLocation
+        ? innerHtml($(`[parent="${$parentId}"]`).text(), $parentId)
+        : innerHtml();
+
+      addSearchLocation();
     }
   );
 
   /**
    * Add Search Location
    */
-
-  $("#landmark-modal").on("click", "#addLocations", function (e) {
+  function addSearchLocation() {
     $("#mCSB_1_container").html(searchResult);
+  }
+  $("#landmark-modal").on("click", "#addLocations", function (e) {
+    addSearchLocation();
     $("#landmark-modal").iziModal("close");
   });
 
@@ -241,52 +260,58 @@
    * Add Search Location
    */
 
-  $("#landmark-modal").on("click", ".location-parent", function (e) {
-    var parentId = e.target.getAttribute("parent");
-    if (!$(e.target).hasClass("selected")) {
-      $(e.target).addClass("selected");
-      document.querySelectorAll(".locationsClickFunction").forEach((item) => {
-        if (
-          item.getAttribute("parent-id") == parentId &&
-          !selectedLocations.find(
-            (location) => location.id == item.getAttribute("data-id")
-          )
-        ) {
-          $(`span[parent=${parentId}]`).addClass("selected");
-          // console.log(jQuery.inArray(item.getAttribute("data-id"), selectedLocations.id) == -1,'bu');
+  $("#landmark-modal, .form-selected").on(
+    "click",
+    ".location-parent",
+    function (e) {
+      var parentId = e.target.getAttribute("parent");
+      if (!$(e.target).hasClass("selected")) {
+        $(e.target).addClass("selected");
+        document.querySelectorAll(".locationsClickFunction").forEach((item) => {
+          if (
+            item.getAttribute("parent-id") == parentId &&
+            !selectedLocations.find(
+              (location) => location.id == item.getAttribute("data-id")
+            )
+          ) {
+            $(`span[parent=${parentId}]`).addClass("selected");
+            // console.log(jQuery.inArray(item.getAttribute("data-id"), selectedLocations.id) == -1,'bu');
 
-          item.classList.add("selected");
-          pushSelectedLocations(
-            item.getAttribute("data-id"),
-            item.getAttribute("parent-id"),
-            item.innerText
-          );
-        }
-      });
-      // const searchObject = selectedLocations.find(
-      //   (location) => location.id == 11
-      // );
-      // console.log(searchObject);
-    } else {
-      $(e.target).removeClass("selected");
-      document.querySelectorAll(".locationsClickFunction").forEach((item) => {
-        if (
-          item.getAttribute("parent-id") == parentId ||
-          item.getAttribute("parent") == parentId
-        ) {
-          item.classList.remove("selected");
-        }
-      });
-      selectedLocations = selectedLocations.filter(
-        (selectedLocation) => selectedLocation.parentId !== parentId
-      );
+            item.classList.add("selected");
+            pushSelectedLocations(
+              item.getAttribute("data-id"),
+              item.getAttribute("parent-id"),
+              item.innerText
+            );
+          }
+        });
+        // const searchObject = selectedLocations.find(
+        //   (location) => location.id == 11
+        // );
+        // console.log(searchObject);
+      } else {
+        $(e.target).removeClass("selected");
+        document.querySelectorAll(".locationsClickFunction").forEach((item) => {
+          if (
+            item.getAttribute("parent-id") == parentId ||
+            item.getAttribute("parent") == parentId
+          ) {
+            item.classList.remove("selected");
+          }
+        });
+        selectedLocations = selectedLocations.filter(
+          (selectedLocation) => selectedLocation.parentId !== parentId
+        );
+      }
+      $(e.target).hasClass("selected")
+        ? innerHtml($(e.target).text(), parentId)
+        : innerHtml();
+        addSearchLocation();
+
+      // console.log($(this)[0]);
+      // $(this).closest("span").css({ color: "red", border: "2px solid red" });
     }
-    $(e.target).hasClass("selected")
-      ? innerHtml($(e.target).text(), parentId)
-      : innerHtml();
-    // console.log($(this)[0]);
-    // $(this).closest("span").css({ color: "red", border: "2px solid red" });
-  });
+  );
 
   /**
    * PAY announcement
@@ -840,7 +865,7 @@
   $(".property-detail__favorite").on("click", function () {
     $(this).toggleClass("active");
   });
-  
+
   // complex page for disabled
   $(".searchCity").on("change", function (e) {
     if (e.target.value == 1) {
@@ -867,22 +892,22 @@
     $(e.target).val(this.value.match(/[0-9]*/));
   });
   $("#moreSearch").on("click", function (e) {
-    $(this).toggleClass('active');
-    if( $(this).hasClass('active')){
-      $(".more-icon").removeClass('icon-chevron-down').addClass('icon-chevron-up');
+    $(this).toggleClass("active");
+    if ($(this).hasClass("active")) {
+      $(".more-icon")
+        .removeClass("icon-chevron-down")
+        .addClass("icon-chevron-up");
       $(".more-text").text("Qısa Axtarış");
-    }
-    else{
-      $(".more-icon").removeClass('icon-chevron-up').addClass('icon-chevron-down');
+    } else {
+      $(".more-icon")
+        .removeClass("icon-chevron-up")
+        .addClass("icon-chevron-down");
       $(".more-text").text("Ətraflı Axtarış");
-
-
     }
 
     // var icon = e.target.querySelector(".more-icon");
     // icon.classList.toggle("icon-chevron-down");
     // icon.classList.toggle("icon-chevron-up");
-    
   });
   // font size increase decrease
   var $affectedElements = $("div[class=editor-content]");
@@ -976,6 +1001,32 @@
         fileReader.readAsDataURL(f);
       });
   });
+
+  // vuqar sekil ucun yer
+  var sortedItemIds = []; //siralama ucun array
+  $("#sortable-container").sortable({
+    axis: "x,y", // Sıralamanın yonun burdan deyise bilersen
+    containment: "parent",
+
+    update: function (event, ui) {
+      sortedItemIds = $(this).sortable("toArray");
+      // Sıralama melumatlarini buradan idare ede bilecen
+      $.ajax({
+        type: "POST",
+        url: "/siralama-gonder-endpoint", //sen birdene linki bura yazacan
+        data: JSON.stringify(sortedItemIds),
+        contentType: "application/json",
+        success: function (response) {
+          // Burani da bilirsen gelen ne varsa burda yazdira bilersen
+        },
+        error: function (error) {
+          // xeta varsa da burda goster
+        },
+      });
+    },
+  });
+
+  $("#sortable-container").disableSelection();
 
   jQuery.fn.scrollCenter = function (elem, speed) {
     var active = jQuery(this).find(elem);
